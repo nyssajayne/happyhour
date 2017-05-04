@@ -1,0 +1,459 @@
+//Fonts
+@playfair: 'Playfair Display', serif;
+@lato: 'Lato', sans-serif;
+
+//Colours
+@black: #010A07;
+@green: #1B4D3E;
+@red: #752929;
+@dark-brown: #573713;
+@med-brown: #B89463;
+@light-brown: #DFCFB9;
+@lightest-brown: #EFE7DC;
+
+//http://stackoverflow.com/questions/9249359/is-it-possible-to-vertically-align-text-within-a-div
+.absolute-center {
+	/* Internet Explorer 10 */
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+	box-align:center;
+}
+
+//Resets
+html {
+	font-size: 62.5%;
+}
+
+html, body, header, nav, footer, aside, section, address, div, span, p, a, h1, h2, h3, h4, h5, h6, input, textarea, ul, li, img, svg {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+img, svg {
+	display: block;
+	border: 0;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+	
+	path, rect, circle {
+		stroke-width: 2px;
+		fill: none;
+		stroke: @green;
+	}
+}
+
+.clearfix {
+	clear: both;
+}
+
+body {
+	background-color: @light-brown;
+	color: @black;
+	font-family: @lato;
+	font-size: 1.8rem;
+	font-weight: 300;
+	margin-bottom: 1rem;
+	line-height: 1.5;
+
+	a, a:visited {
+		color: @green;
+	}
+
+	a:hover, a:active {
+		text-decoration: none;
+		color: @red;
+	}
+}
+
+header {
+	img {
+		width: 100%;
+	}
+}
+
+.divider {
+	height: 1rem;
+	background-color: @dark-brown;
+}
+
+.nav-mob {
+	display: none;
+}
+
+.nav-desktop {
+	display: block;
+}
+
+nav {
+	background-color: @med-brown;
+	width: 100%;
+	margin-bottom: 3.6rem;
+
+	ul {
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+		padding: 1.8rem 3.6rem;
+		text-transform: uppercase;
+		font-weight: 400;
+		list-style-type: none;
+
+		a, a:visited {
+			color: @light-brown;
+			text-decoration: none;
+		}
+
+		a:hover, a:active {
+			color: @red;
+		}
+	}
+
+	li.current-menu-item {
+		a, a:visited {
+			color: @dark-brown;
+		}
+	}
+}
+
+article {
+	max-width: 96rem;
+	margin: auto;
+	padding: 0 0.9rem;
+
+	h2, h3 {
+		font-family: @playfair;
+		font-size: 3.6rem;
+		margin-bottom: 0.9rem;
+		font-weight: normal;
+	}
+
+	h3 {
+		font-size: 2.4rem;
+		margin-top: 3.6rem;
+	}
+
+	p, li {
+		margin-bottom: 0.9rem
+	}
+
+	.this-pub-has {
+		margin-top: 1.8rem;
+
+		.category {
+			.icon, .name {
+				float: left;
+				margin-bottom: 0.9rem;
+			}
+
+			.icon {
+				width: 8%;
+
+				svg {
+					max-width: 5.4rem;
+					max-height: 5.4rem;
+				}
+			}
+
+			.name {
+				max-width: 87rem;
+				width: 91%;
+
+				.title {
+					font-weight: 400;
+				}
+			}
+		}
+	}
+
+	.alignnone {
+		display: inline-block;
+	}
+
+	input, textarea {
+		margin-top: 0.3rem;
+		width: 100%;
+		padding: 1rem;
+		font-size: 1.8rem;
+		font-family: @lato;
+		font-weight: 300;
+		border: 0.1rem solid #000;
+	}
+
+	input:focus, textarea:focus {
+		border-color: @green;
+	}
+
+	.wpcf7-submit {
+		width: auto;
+		background-color: @green;
+		color: #fff;
+		border: 0;
+		text-transform: lowercase;
+		text-align: center;
+		font-family: @playfair;
+		padding: 0.9rem 1.8rem;
+	}
+
+	.wpcf7-submit:hover, .wpcf7-submit:active {
+		background-color: @red;
+		cursor: pointer;
+	}
+}
+
+.home {
+	.filters, .bars {
+		max-width: 96rem;
+		margin: auto;
+	}
+
+	.bar {
+		padding: 0.9rem;
+		width: 33%;
+		float: left;
+		margin-bottom: 0.5%;
+		background-color: @lightest-brown;
+
+		.bar-wrapper {
+			max-width: 96rem;
+			margin: auto;
+		}
+
+		.image {
+			img {
+				max-width: 100%;
+				height: 100%;
+			}
+
+			svg {
+				max-width: 66%;
+				height: auto;
+				margin: auto;
+				padding: 15% 0;
+			}
+		}
+
+		.text {
+			width: 100%;
+
+			.title {
+				font-family: @playfair;
+				font-size: 2.4rem;
+			}
+		}
+
+		a, a:visited {
+			text-decoration: none;
+			color: @black;
+		}
+
+		a:hover, a:active {
+			color: @red;
+		}
+	}
+
+	.bar-sizer {
+		width: 33%;
+	}
+
+	.bar-gutter {
+		width: 0.5%;
+	}
+}
+
+.single {
+	address, .date {
+		font-family: @playfair;
+		font-size: 1.8rem;
+		font-weight: normal;
+		font-style: italic;
+		margin-bottom: 1.8rem;
+
+		svg {
+			width: auto;
+			height: 1.8rem;
+			stroke-width: 1px;
+			stroke: #000;
+			margin-bottom: -0.2rem;
+			display: inline-block;
+		}
+	}
+
+	.date {
+		margin-bottom: 0;
+		margin-top: 3.6rem;
+	}
+
+	.this-pub-has {
+		padding: 1.8rem 0rem;
+
+		.icon {
+			margin-right: 1.8rem;
+			max-height: 5.4rem;
+			max-width: 5.4rem;
+			position: relative;
+			display: inline-block;
+		}
+
+		.no-of-drinks {
+			margin-right: 1.6rem;
+			position: relative;
+			display: inline-block;
+			margin-left: -3.6rem;
+		}
+
+		.tooltip, .mob-tooltip {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: @light-brown;
+			color: @black;
+			text-align: center;
+			font-size: 1.2rem;
+			padding: 0.3rem;
+		}
+
+		.icon:hover {
+			.tooltip {
+				.absolute-center;
+			}
+		}
+	}
+
+	.gallery {
+		margin-bottom: 1.8rem;
+		width: 100%;
+		height: 9rem;
+		position: relative;
+
+		img {
+			float: left;
+			height: 9rem;
+			width: auto;
+			margin-right: 0.36rem;
+
+		}
+	}
+}
+
+footer {
+	padding: 3rem 0;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+@media screen and (max-width: 759px) {
+	.nav-desktop {
+		display: none;
+	}
+
+	.nav-mob {
+		display: block;
+
+		#nav-menu-mob {
+			color: @light-brown;
+			cursor: pointer;
+		}
+
+		.menu-item {
+			display: none;
+		}
+	}
+
+	nav li {
+		display: block;
+	}
+
+	.home {
+		nav {
+			margin-bottom: 0;
+		}
+
+		.bar {
+			width: 100%;
+			float: left;
+			margin-bottom: 0;
+
+			.bar-wrapper {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.image {
+				width: 16%;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.text {
+				width: 80%;
+			}
+		}
+
+		.bar:nth-child(2n+1) {
+			background-color: @light-brown;
+		}
+
+		.pending .bar-wrapper {
+			opacity: 0.3;
+		}
+
+		.bar-sizer {
+			width: 100%;
+		}
+
+		.bar-gutter {
+			width: 0;
+		}
+	}
+
+	.single {
+		.this-pub-has {
+			.icon {
+				margin-bottom: 3.6rem;
+			}
+
+			.tooltip, .mob-tooltip {
+				display: block;
+				top: 5.4rem;
+			}
+
+			.no-of-drinks, .no-of {
+				display: none;
+			}
+
+			.icon:hover {
+				.no-of {
+					display: none;
+				}
+			}
+		}
+	}
+}

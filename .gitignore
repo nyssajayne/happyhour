@@ -19,7 +19,7 @@ xmlrpc.php
 wp-admin/
 wp-includes/
 wp-content/**/*
-images/
+assets/
 
 !wp-content/themes/happyhour/
 
