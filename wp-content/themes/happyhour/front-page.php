@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<header>
+	<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/the3056project-hero-image.jpg" alt="<?php bloginfo( 'title' ); ?>" /></a>
+</header>
+
 <section>
 
 	<div class="bars">

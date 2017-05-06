@@ -8,13 +8,11 @@ add_action( 'wp_enqueue_scripts', 'register_styles' );
 function register_styles() {
 	wp_register_style( 'style', get_stylesheet_directory_uri() . '/style.css' );
 	wp_register_style( 'main', get_stylesheet_directory_uri() . '/main.css' );
-	wp_register_style( 'playfair', 'https://fonts.googleapis.com/css?family=Playfair+Display' );
 	wp_register_style( 'lato', 'https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700italic,700' );
 	wp_register_style( 'smoothscroll', get_stylesheet_directory_uri() . '/smoothDivScroll.css' );
 
 	wp_enqueue_style( 'style' );
 	wp_enqueue_style( 'main' );
-	wp_enqueue_style( 'playfair' );
 	wp_enqueue_style( 'lato' );
 	wp_enqueue_style( 'smoothscroll' );
 }
@@ -44,12 +42,48 @@ function register_menu() {
   register_nav_menu( 'primary', __( 'Primary Menu', 'theme-slug' ) );
 }
 
-function mainpage_query($query) {
-	if( $query->is_home() && $query->is_main_query() ) {
-		$query->set( 'post_status', array('publish', 'pending'));
-		$query->set( 'meta_key', 'order' );
-		$query->set( 'orderby', 'order' );
-		$query->set( 'order', ASC );
+function print_menu($menu_type) {
+	$defaults = array(
+		'theme_location'  => 'primary',
+		'menu'            => '',
+		'container'       => 'nav',
+		'container_class' => 'nav-desktop ',
+		'container_id'    => '',
+		//'menu_class'      => 'vertical-text',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+	);
+
+	$defaults_mob = array(
+		'theme_location'  => 'primary',
+		'menu'            => '',
+		'container'       => 'nav',
+		'container_class' => 'nav-mob',
+		'container_id'    => '',
+		'menu_class'      => 'vertical-text',
+		'menu_id'         => '',
+		'echo'            => true,
+		'fallback_cb'     => 'wp_page_menu',
+		'before'          => '',
+		'after'           => '',
+		'link_before'     => '',
+		'link_after'      => '',
+		'items_wrap'      => '<ul id="%1$s" class="%2$s"><li id="nav-menu-mob">Menu</li>%3$s</ul>',
+		'depth'           => 0,
+		'walker'          => ''
+	);
+
+	if($menu_type == 'mobile') {
+		wp_nav_menu( $defaults_mob );
+	} else {
+		wp_nav_menu( $defaults );
 	}
 }
-add_action( 'pre_get_posts', 'mainpage_query' );
